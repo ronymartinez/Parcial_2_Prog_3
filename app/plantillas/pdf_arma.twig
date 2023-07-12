@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ventas</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+               <th>FILA</th>
+                <th>ID</th>
+                <th>PRECIO</th>
+                <th>NOMBRE</th>
+                <th>NACIONALIDAD</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for venta, datos in ventas %}
+                <tr>
+                    <td>{{ venta }}</td>
+                    {% set keys = datos|keys %}{% for key in keys %}
+                    <td>{{ datos[key] }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
